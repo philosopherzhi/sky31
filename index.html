@@ -258,6 +258,22 @@
         	#im{
         		border: 8px solid #0A3444;
         	}
+        	.bott{
+        		width: 100%;
+        		position: absolute;
+        		bottom: 2%;
+        	}
+        	#download{
+        		text-decoration: none;
+        		display: block;
+        		width: 28%;
+        		border-radius: 5%;
+        		color: white;
+        		text-align: center;
+        		padding-top: 1%;
+        		padding-bottom: 1%;
+        		background-color: #F6821D;
+        	}
 		</style>
 	</head>
 	<body>
@@ -294,7 +310,7 @@
 			<input type="file" name="file" id="file" class="inputfile" accept="image/png, image/jpeg, image/gif, image/jpg"  capture="camera"/>
 			<label for="file" class='button2'>重拍</label>
 			<div class="submit">
-				生成奖状
+				生成证书
 			</div>
 		</div>
 		</div>
@@ -304,8 +320,9 @@
 			<img id="im" />
 			<canvas id="can"></canvas>
 		</div>
-		
-		
+		<div class="bott">
+			<a id="download" target="_blank">下载证书</a>
+		</div>
 	</div>
 	<script>
 		window.onload = function() {
@@ -322,6 +339,7 @@
 			var screen1 = document.getElementById('screen');
 			var err1 = document.getElementById('err1');
 			var err2 = document.getElementById('err2');
+			var download=document.getElementById('download');
 			var flag=0;
 		 	let lzk=0;
 			photo.style.height=height*0.28+"px";
@@ -332,8 +350,8 @@
 			im.height = height*0.85*8;
 			screen1.style.width =  height*0.85*8*(720/1206)+"px";
 			screen1.style.height =  height*0.85*8+"px";
-			im.style.marginTop=height*0.15*4+'px';
-			var x =Math.random();//0.1
+			im.style.marginTop=height*0.15*3+'px';
+			var x =0.1;//Math.random()
 			name.onblur = function () {
         			if(name.value==""||name.value.length<2||name.value.length>5){
 						err1.innerHTML="名字是2-4个汉字诺~";
@@ -390,6 +408,7 @@
 				ctx.closePath();
 				img1 = can.toDataURL('image/jpeg');
 				im.src=img1;
+				download.href=window.URL.createObjectURL(dataURItoBlob(im.src));
 			});
 //			$('#file').change(function(){
 //    			var file1 = $('#file').get(0).files[0];
@@ -478,6 +497,7 @@
 				ctx.closePath();
 				img1 = can.toDataURL('image/jpeg');
 				im.src=img1;
+				download.href=window.URL.createObjectURL(dataURItoBlob(im.src));
 			});
 			document.querySelector('#file').addEventListener('change', function () {
     		// this.files[0] 是用户选择的文件
@@ -549,6 +569,7 @@
 				ctx.closePath();
 				img1 = can.toDataURL('image/jpeg');
 				im.src=img1;
+				download.href=window.URL.createObjectURL(dataURItoBlob(im.src));
 			});
 			document.querySelector('#file').addEventListener('change', function () {
     		// this.files[0] 是用户选择的文件
@@ -583,7 +604,16 @@
         		}
 			}
 		}
-			
+		function dataURItoBlob(dataURI) {  
+    		var byteString = atob(dataURI.split(',')[1]);  
+    		var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];  
+    		var ab = new ArrayBuffer(byteString.length);  
+    		var ia = new Uint8Array(ab);  
+    		for (var i = 0; i < byteString.length; i++) {  
+        		ia[i] = byteString.charCodeAt(i);  
+    		}  
+    		return new Blob([ab], {type: mimeString});  
+		}  
 		}
 	</script>
 	</body>
