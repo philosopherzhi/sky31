@@ -266,7 +266,7 @@
         	#download{
         		text-decoration: none;
         		display: block;
-        		width: 28%;
+        		width: 36%;
         		border-radius: 5%;
         		color: white;
         		text-align: center;
@@ -321,7 +321,7 @@
 			<canvas id="can"></canvas>
 		</div>
 		<div class="bott">
-			<a id="download" target="_blank" download="honor.jpg">下载证书</a>
+			<div id="download" target="_blank">长按图片保存</div>
 		</div>
 	</div>
 	<script>
@@ -356,16 +356,18 @@
 			im.style.marginTop=height*0.15*3+'px';
 			var x =0.1;//Math.random()
 			name.onblur = function () {
-        			if(name.value==""||name.value.length<2||name.value.length>5){
+        			if(name.value==""||name.value.length<2||name.value.length>=5){
 						err1.innerHTML="名字是2-4个汉字诺~";
 						name.style.border="1px solid red";
 						name.style.backgroundColor="#FBF9E2";
 						na.style.color="#5E5E5E";
+						name.style.color="#5E5E5E";
 					}else{
 						err1.innerHTML="";
 						name.style.border="0px";
 						name.style.backgroundColor="#F6821D";
 						na.style.color="rgba(255,255,255,0.9)";
+						name.style.color="rgba(255,255,255,0.9)";
 					} 
             	}
 			name.onfocus = function () {
@@ -373,18 +375,21 @@
 						name.style.border="0px";
 						name.style.backgroundColor="#F6821D";
 						na.style.color="rgba(255,255,255,0.9)";
+						name.style.color="rgba(255,255,255,0.9)";
             	}
 			id.onblur = function () {
         			if(id.value.length!=5||parseInt(id.value)<0||parseInt(id.value)>=100000){
         				err2.innerHTML="编号是5位数字诺~"
         				id.style.border="1px solid red";
         				nu.style.color="#5E5E5E";
+        				id.style.color="#5E5E5E";
         				id.style.backgroundColor="#FBF9E2";
         			}else{
         				err2.innerHTML="";
         				id.style.border="0px";
         				id.style.backgroundColor="#F6821D";
         				nu.style.color="rgba(255,255,255,0.9)";
+        				id.style.color="rgba(255,255,255,0.9)";
         			} 
             	}
 			id.onfocus = function () {
@@ -392,12 +397,13 @@
         				id.style.border="0px";
         				id.style.backgroundColor="#F6821D";
         				nu.style.color="rgba(255,255,255,0.9)";
+        				id.style.color="rgba(255,255,255,0.9)";
             	}
 		if(x<=0.333334){
 			var ctx = can.getContext("2d");
 			$('#login').click(function(){
 				if(name.value==""||name.value.length<2||name.value.length>5||id.value.length!=5||parseInt(id.value)<0||parseInt(id.value)>=100000){
-					alert("请输入正确的名字与编号诺~");
+					 
 					return;
 				}
 				lzk++;
@@ -431,7 +437,6 @@
 				ctx.closePath();
 				img1 = can.toDataURL('image/jpeg');
 				im.src=img1;
-				download.href=URL.createObjectURL(im.src);
 			});
 //			$('#file').change(function(){
 //    			var file1 = $('#file').get(0).files[0];
@@ -486,7 +491,6 @@
 			var ctx = can.getContext("2d");
 			$('#login').click(function(){
 				if(name.value==""||name.value.length<2||name.value.length>5||id.value.length!=5||parseInt(id.value)<0||parseInt(id.value)>=100000){
-					alert("请输入正确的名字与编号");
 					return;
 				}
 				lzk++;
@@ -494,7 +498,6 @@
 			});
 			$('.submit').click(function(){
 				if(flag==0){
-					alert("请上传图片！");
 					return;
 				}
 				$('.page1_5').fadeOut(500);
@@ -520,7 +523,6 @@
 				ctx.closePath();
 				img1 = can.toDataURL('image/jpeg');
 				im.src=img1;
-				download.href=URL.createObjectURL(im.src);
 			});
 			document.querySelector('#file').addEventListener('change', function () {
     		// this.files[0] 是用户选择的文件
@@ -558,7 +560,6 @@
 			var ctx = can.getContext("2d");
 			$('#login').click(function(){
 				if(name.value==""||name.value.length<2||name.value.length>5||id.value.length!=5||parseInt(id.value)<0||parseInt(id.value)>=100000){
-					alert("请输入正确的名字与编号");
 					return;
 				}
 				lzk++;
@@ -566,7 +567,6 @@
 			});
 			$('.submit').click(function(){
 				if(flag==0){
-					alert("请上传图片！");
 					return;
 				}
 				$('.page1_5').fadeOut(500);
@@ -592,7 +592,6 @@
 				ctx.closePath();
 				img1 = can.toDataURL('image/jpeg');
 				im.src=img1;
-				download.href=URL.createObjectURL(im.src);
 			});
 			document.querySelector('#file').addEventListener('change', function () {
     		// this.files[0] 是用户选择的文件
