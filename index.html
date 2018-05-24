@@ -287,12 +287,12 @@
 			<div class="inf">
 				<div class="name">
 					<input  id="name"/>
-					<span>姓名：</span>
+					<span id="na">姓名：</span>
 					<div class="err" id="err1"></div>
 				</div>
 				<div class="id">
 					<input id="id" type="number"/>
-					<span>编号：</span>
+					<span id="nu">编号：</span>
 					<div class="err" id="err2"></div>
 				</div>
 				<button id="login" class="button"/>拍照</button>
@@ -332,6 +332,8 @@
 			var can = document.getElementById('can');
 			var im = document.getElementById('im');
 			var id = document.getElementById('id');
+			var na = document.getElementById('na');
+			var nu = document.getElementById('nu');
 			var name = document.getElementById('name');
 			var photo = document.getElementById('photo');
 			var width = document.documentElement.clientWidth || document.body.clientWidth;
@@ -355,20 +357,40 @@
 			name.onblur = function () {
         			if(name.value==""||name.value.length<2||name.value.length>5){
 						err1.innerHTML="名字是2-4个汉字诺~";
-						name.style.border="2px solid red";
+						name.style.border="1px solid red";
+						name.style.backgroundColor="#FBF9E2";
+						na.style.color="#5E5E5E";
 					}else{
 						err1.innerHTML="";
 						name.style.border="0px";
+						name.style.backgroundColor="#F6821D";
+						na.style.color="rgba(255,255,255,0.9)";
 					} 
+            	}
+			name.onfocus = function () {
+						err1.innerHTML="";
+						name.style.border="0px";
+						name.style.backgroundColor="#F6821D";
+						na.style.color="rgba(255,255,255,0.9)";
             	}
 			id.onblur = function () {
         			if(id.value.length!=5||parseInt(id.value)<0||parseInt(id.value)>=100000){
         				err2.innerHTML="编号是5位数字诺~"
-        				id.style.border="2px solid red";
+        				id.style.border="1px solid red";
+        				nu.style.color="#5E5E5E";
+        				id.style.backgroundColor="#FBF9E2";
         			}else{
         				err2.innerHTML="";
         				id.style.border="0px";
+        				id.style.backgroundColor="#F6821D";
+        				nu.style.color="rgba(255,255,255,0.9)";
         			} 
+            	}
+			id.onfocus = function () {
+        				err2.innerHTML="";
+        				id.style.border="0px";
+        				id.style.backgroundColor="#F6821D";
+        				nu.style.color="rgba(255,255,255,0.9)";
             	}
 		if(x<=0.333334){
 			var ctx = can.getContext("2d");
