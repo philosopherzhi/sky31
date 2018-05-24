@@ -220,11 +220,6 @@
 				border: 1px solid;
 				margin-bottom: 25%;
 			}
-		</style>
-		
-		
-		
-		<style>
 			.inputfile {
             	opacity: 0;
             	display: none;
@@ -258,7 +253,10 @@
         		width: 100%;
         	}
         	#screen{
-        		zoom: 0.5;
+        		zoom: 0.25;
+        	}
+        	#im{
+        		border: 4px solid #0A3444;
         	}
 		</style>
 	</head>
@@ -328,13 +326,13 @@
 		 	let lzk=0;
 			photo.style.height=height*0.28+"px";
 			photo.style.width=height*0.21+"px";
-			can.width =  height*0.85*2*(720/1206);
-			can.height = height*0.85*2;
-			im.width =  height*0.85*2*(720/1206);
-			im.height = height*0.85*2;
-			screen1.style.width =  height*0.85*2*(720/1206)+"px";
-			screen1.style.height =  height*0.85*2+"px";
-			im.style.marginTop=height*0.15+'px';
+			can.width =  height*0.85*4*(720/1206);
+			can.height = height*0.85*4;
+			im.width =  height*0.85*4*(720/1206);
+			im.height = height*0.85*4;
+			screen1.style.width =  height*0.85*4*(720/1206)+"px";
+			screen1.style.height =  height*0.85*4+"px";
+			im.style.marginTop=height*0.15*2+'px';
 			var x =Math.random();//0.1
 			name.onblur = function () {
         			if(name.value==""||name.value.length<2||name.value.length>5){
@@ -372,7 +370,7 @@
 				$('.page1_5').fadeOut(500);
 				$('#page2').delay(500).fadeIn(500);
 				ctx.beginPath();
-				ctx.font = "800 6.5vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
+				ctx.font = "800 26vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
 				ctx.textAlign="center";
 				ctx.fillStyle = "#0A3444";
 				var a=parseInt(id.value)%10;
@@ -380,15 +378,15 @@
 				var c=parseInt(parseInt(id.value)/100)%10;
 				var d=parseInt(parseInt(id.value)/1000)%10;
 				var e=parseInt(parseInt(id.value)/10000)%10;
-				ctx.fillText(e, height*0.85*2*0.124, height*0.85*2*0.106);
-				ctx.fillText(d, height*0.85*2*0.152, height*0.85*2*0.106);
-				ctx.fillText(c, height*0.85*2*0.180, height*0.85*2*0.106);
-				ctx.fillText(b, height*0.85*2*0.208, height*0.85*2*0.106);
-				ctx.fillText(a, height*0.85*2*0.236, height*0.85*2*0.106);
-				ctx.font = "400 15vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
+				ctx.fillText(e, height*0.85*4*0.124, height*0.85*4*0.106);
+				ctx.fillText(d, height*0.85*4*0.152, height*0.85*4*0.106);
+				ctx.fillText(c, height*0.85*4*0.180, height*0.85*4*0.106);
+				ctx.fillText(b, height*0.85*4*0.208, height*0.85*4*0.106);
+				ctx.fillText(a, height*0.85*4*0.236, height*0.85*4*0.106);
+				ctx.font = "400 58vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
 				ctx.textAlign="center";
 				ctx.fillStyle = "#F67706";
-				ctx.fillText(name.value, height*0.85*2*0.222, height*0.85*2*0.172);
+				ctx.fillText(name.value, height*0.85*4*0.222, height*0.85*4*0.172);
 				ctx.closePath();
 				img1 = can.toDataURL('image/jpeg');
 				im.src=img1;
@@ -433,10 +431,10 @@
         			img2.src="橙蓝.png";
         			img2.onload = function(){  
         				ctx.beginPath();
-						ctx.drawImage(img2,0,0, height*0.85*2*(720/1206), height*0.85*2);
+						ctx.drawImage(img2,0,0, height*0.85*4*(720/1206), height*0.85*4);
 						ctx.closePath();
 						ctx.beginPath();
-        				ctx.drawImage(img3,height*0.85*2*(720/1206)*217/613,height*0.85*2*415/1230 , height*0.85*2*(720/1206)/0.8*0.234, height*0.85*2*190/820 );
+        				ctx.drawImage(img3,height*0.85*4*(720/1206)*217/613,height*0.85*4*415/1230 , height*0.85*4*(720/1206)/0.8*0.234, height*0.85*4*190/820 );
         				ctx.closePath();
         			}
         		}
@@ -460,7 +458,7 @@
 				$('.page1_5').fadeOut(500);
 				$('#page2').delay(500).fadeIn(500);
 				ctx.beginPath();
-				ctx.font = "800 6.5vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
+				ctx.font = "800 26vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
 				ctx.textAlign="center";
 				ctx.fillStyle = "#298264";
 				var a=parseInt(id.value)%10;
@@ -468,15 +466,15 @@
 				var c=parseInt(parseInt(id.value)/100)%10;
 				var d=parseInt(parseInt(id.value)/1000)%10;
 				var e=parseInt(parseInt(id.value)/10000)%10;
-				ctx.fillText(e, height*0.85*2*0.124, height*0.85*2*0.106);
-				ctx.fillText(d, height*0.85*2*0.152, height*0.85*2*0.106);
-				ctx.fillText(c, height*0.85*2*0.180, height*0.85*2*0.106);
-				ctx.fillText(b, height*0.85*2*0.208, height*0.85*2*0.106);
-				ctx.fillText(a, height*0.85*2*0.236, height*0.85*2*0.106);
-				ctx.font = "400 15vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
+				ctx.fillText(e, height*0.85*4*0.124, height*0.85*4*0.106);
+				ctx.fillText(d, height*0.85*4*0.152, height*0.85*4*0.106);
+				ctx.fillText(c, height*0.85*4*0.180, height*0.85*4*0.106);
+				ctx.fillText(b, height*0.85*4*0.208, height*0.85*4*0.106);
+				ctx.fillText(a, height*0.85*4*0.236, height*0.85*4*0.106);
+				ctx.font = "400 58vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
 				ctx.textAlign="center";
 				ctx.fillStyle = "#D23C2E";
-				ctx.fillText(name.value, height*0.85*2*0.222, height*0.85*2*0.172);
+				ctx.fillText(name.value, height*0.85*4*0.222, height*0.85*4*0.172);
 				ctx.closePath();
 				img1 = can.toDataURL('image/jpeg');
 				im.src=img1;
@@ -505,10 +503,10 @@
         			img2.src="红绿.png";
         			img2.onload = function(){  
         				ctx.beginPath();
-						ctx.drawImage(img2,0,0, height*0.85*2*(720/1206), height*0.85*2);
+						ctx.drawImage(img2,0,0, height*0.85*4*(720/1206), height*0.85*4);
 						ctx.closePath();
 						ctx.beginPath();
-        				ctx.drawImage(img3,height*0.85*2*(720/1206)*217/613,height*0.85*2*415/1230 , height*0.85*2*(720/1206)/0.8*0.234, height*0.85*2*190/820 );
+        				ctx.drawImage(img3,height*0.85*4*(720/1206)*217/613,height*0.85*4*415/1230 , height*0.85*4*(720/1206)/0.8*0.234, height*0.85*4*190/820 );
         				ctx.closePath();
         			}
         		}
@@ -531,7 +529,7 @@
 				$('.page1_5').fadeOut(500);
 				$('#page2').delay(500).fadeIn(500);
 				ctx.beginPath();
-				ctx.font = "800 6.5vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
+				ctx.font = "800 26vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
 				ctx.textAlign="center";
 				ctx.fillStyle = "#2496B1";
 				var a=parseInt(id.value)%10;
@@ -539,15 +537,15 @@
 				var c=parseInt(parseInt(id.value)/100)%10;
 				var d=parseInt(parseInt(id.value)/1000)%10;
 				var e=parseInt(parseInt(id.value)/10000)%10;
-				ctx.fillText(e, height*0.85*2*0.124, height*0.85*2*0.106);
-				ctx.fillText(d, height*0.85*2*0.152, height*0.85*2*0.106);
-				ctx.fillText(c, height*0.85*2*0.180, height*0.85*2*0.106);
-				ctx.fillText(b, height*0.85*2*0.208, height*0.85*2*0.106);
-				ctx.fillText(a, height*0.85*2*0.236, height*0.85*2*0.106);
-				ctx.font = "400 14.5vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
+				ctx.fillText(e, height*0.85*4*0.124, height*0.85*4*0.106);
+				ctx.fillText(d, height*0.85*4*0.152, height*0.85*4*0.106);
+				ctx.fillText(c, height*0.85*4*0.180, height*0.85*4*0.106);
+				ctx.fillText(b, height*0.85*4*0.208, height*0.85*4*0.106);
+				ctx.fillText(a, height*0.85*4*0.236, height*0.85*4*0.106);
+				ctx.font = "400 58vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
 				ctx.textAlign="center";
 				ctx.fillStyle = "#DD2422";
-				ctx.fillText(name.value, height*0.85*2*0.210, height*0.85*2*0.172);
+				ctx.fillText(name.value, height*0.85*4*0.210, height*0.85*4*0.172);
 				ctx.closePath();
 				img1 = can.toDataURL('image/jpeg');
 				im.src=img1;
@@ -576,10 +574,10 @@
         			img2.src="蓝红.png";
         			img2.onload = function(){  
         				ctx.beginPath();
-						ctx.drawImage(img2,0,0, height*0.85*2*(720/1206), height*0.85*2);
+						ctx.drawImage(img2,0,0, height*0.85*4*(720/1206), height*0.85*4);
 						ctx.closePath();
 						ctx.beginPath();
-        				ctx.drawImage(img3,height*0.85*2*(720/1206)*217/613,height*0.85*2*415/1230 , height*0.85*2*(720/1206)/0.8*0.234, height*0.85*2*190/820 );
+        				ctx.drawImage(img3,height*0.85*4*(720/1206)*217/613,height*0.85*4*415/1230 , height*0.85*4*(720/1206)/0.8*0.234, height*0.85*4*190/820 );
         				ctx.closePath();
         			}
         		}
