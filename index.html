@@ -342,6 +342,9 @@
 			var err1 = document.getElementById('err1');
 			var err2 = document.getElementById('err2');
 			var download=document.getElementById('download');
+			var evt = document.createEvent("MouseEvents");
+  			evt.initEvent("click", false, false);
+			download.dispatchEvent(evt);
 			var flag=0;
 		 	let lzk=0;
 			photo.style.height=height*0.28+"px";
