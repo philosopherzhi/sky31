@@ -321,7 +321,7 @@
 			<canvas id="can"></canvas>
 		</div>
 		<div class="bott">
-			<div id="download" target="_blank">长按图片保存</div>
+			<div id="download" target="_blank">长按证书保存</div>
 		</div>
 	</div>
 	<script>
@@ -342,7 +342,6 @@
 			var err1 = document.getElementById('err1');
 			var err2 = document.getElementById('err2');
 			var download=document.getElementById('download');
-			var evt = document.createEvent("MouseEvents");
 			var flag=0;
 		 	let lzk=0;
 			photo.style.height=height*0.28+"px";
@@ -625,17 +624,7 @@
         			}
         		}
 			}
-		}
-		function dataURItoBlob(dataURI) {  
-    		var byteString = atob(dataURI.split(',')[1]);  
-    		var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];  
-    		var ab = new ArrayBuffer(byteString.length);  
-    		var ia = new Uint8Array(ab);  
-    		for (var i = 0; i < byteString.length; i++) {  
-        		ia[i] = byteString.charCodeAt(i);  
-    		}  
-    		return new Blob([ab], {type: mimeString});  
-		}  
+		} 
 		}
 	</script>
 	</body>
