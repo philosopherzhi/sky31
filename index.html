@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script type="text/javascript" src="jquery-2.0.3.min.js" ></script>
+		<script type="text/javascript" src="dist/lrz.all.bundle.js" ></script>
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0 auto;
+				font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+			}
+			input{
+				outline: 0;
+				border: 0;
+			}
+			html{
+				height: 100%;
+			}
+			body{
+				height: 100%;
+				background-color: #FBF9E2;
+			}
+			button{
+				outline:0;
+				border: 0;
+			}
+			.button{
+				width: 20%;
+				font-size: 4.5vw;
+				font-weight: 300;
+				position: absolute;
+				line-height: 8vw;
+				height: 8vw;
+				color: rgba(255,255,255,0.95);;
+				text-align: center;
+				border-top-left-radius: 22% 50%;
+    			border-top-right-radius: 22% 50%;
+    			border-bottom-left-radius: 22% 50%;
+    			border-bottom-right-radius: 22% 50%;
+				background-color: #F09646;
+				margin-left: 40%;
+				margin-top: 12%;
+			}
+			.footer{
+				width: 100%;
+				display: flex;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				justify-content:center;
+				-webkit-justify-content: center;
+				margin-bottom: 3%;
+			}
+			.footer img{
+				width: 32%;
+				height: 100%;
+			}
+			.head{
+				padding-top: 3%;
+				font-size: 2.5vw;
+				text-align: center;
+				color: #F6821D;
+			}
+			.head span{
+				letter-spacing: 17.5vw;
+			}
+			.inf{
+				width: 100%;
+				flex-grow:4;
+				-webkit-flex-grow: 4;
+				position: relative;
+			}
+			.id{
+				width: 58%;
+				position: relative;
+				height: 8vw;
+				margin-top: 8%;
+			}
+			.id span{
+				position: absolute;
+				left: 7%;
+				font-size: 4.5vw;
+				font-weight: 300;
+				line-height: 8vw;
+				color: rgba(255,255,255,0.9);
+			}
+			.id input{
+				width: 70%;
+				font-size: 4.5vw;
+				font-weight: 300;
+				position: absolute;
+				height: 8vw;
+				color: white;
+				padding-left: 30%;
+				border-top-left-radius: 7% 50%;
+    			border-top-right-radius: 7% 50%;
+    			border-bottom-left-radius: 7% 50%;
+    			border-bottom-right-radius: 7% 50%;
+				background-color: #F6821D;
+			}
+			.page1{
+				height: 100%;
+				display: flex;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				justify-content:space-between;
+				flex-direction: column;
+				-webkit-justify-content: space-between;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+				background-color: #FBF9E2;
+			}
+			.page1_5{
+				width: 100%;
+				height: 70%;
+				background-color: #FBF9E2;
+				position: absolute;
+				bottom: 0;
+				top: 0;
+				margin:auto auto;
+				display: none;
+			}
+			#page2{
+				width: 100%;
+				height: 100%;
+				display: none;
+				position: relative;
+			}
+			.name{
+				width: 58%;
+				position: relative;
+				height: 8vw;
+				margin-top: 15%;
+			}
+			.name span{
+				position: absolute;
+				left: 7%;
+				font-size: 4.5vw;
+				font-weight: 300;
+				line-height: 8vw;
+				color: rgba(255,255,255,0.9);
+			}
+			.err{
+				position: absolute;
+				left: 7.5%;
+				bottom: -76%;
+				font-size: 3.5vw;
+				color:red ;
+			}
+			.name input{
+				width: 70%;
+				font-size: 4.5vw;
+				font-weight: 300;
+				position: absolute;
+				height: 8vw;
+				color: white;
+				padding-left: 30%;
+				border-top-left-radius: 7% 50%;
+    			border-top-right-radius: 7% 50%;
+    			border-bottom-left-radius: 7% 50%;
+    			border-bottom-right-radius: 7% 50%;
+				background-color: #F6821D;
+			}
+			.text{
+				width: 100%;
+				flex-grow:1;
+				-webkit-flex-grow: 1;
+				display: flex;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				flex-direction: column;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+			}
+			.title{
+				width: 100%;
+				flex-grow:5;
+				-webkit-flex-grow: 5;
+				display: flex;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				flex-direction: column;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+				justify-content:center;
+				-webkit-justify-content: center;
+			}
+			.tl_1{
+				width: 100%;
+				text-align: center;
+				font-size: 10vw;
+				font-weight: 300;
+				color: #F6821D;
+			}
+			.tl_1 span{
+				font-weight: 600;
+			}
+			.tl_2{
+				margin-top: 4%;
+				width: 100%;
+				text-align: center;
+				font-size: 4vw;
+				color: #F7C574;
+				font-weight: 500;
+			}
+			#can{
+				border: 2px solid #0A3444;
+				display: none;
+			}
+			.hint{
+				width: 100%;
+				color: #F6821D;
+				font-size: 8vw;
+				text-align: center;
+				margin-bottom: 25%;
+			}
+			#photo{
+				border: 1px solid;
+				margin-bottom: 25%;
+			}
+		</style>
+		
+		
+		
+		<style>
+			.inputfile {
+            	opacity: 0;
+            	display: none;
+        	}
+        	.button2{
+        		float: left;
+        		margin-left: 15%;
+        		height: 100%;
+        		width: 20%;
+        		background-color: #F67706;
+        		color: rgba(255,255,255,0.95);
+        		border-radius: 5%;
+        		text-align: center;
+        		padding-top: 1%;
+        		padding-bottom: 1%;
+        	}
+        	.submit{
+        		float: left;
+        		width: 20%;
+        		height: 100%;
+        		margin-left: 30%;
+        		border-radius: 5%;
+        		background-color: #F67706;
+        		color: rgba(255,255,255,0.95);
+        		text-align: center;
+        		padding-top: 1%;
+        		padding-bottom: 1%;
+        	}
+        	.btm{
+        		height: 4%;
+        		width: 100%;
+        	}
+        	#screen{
+        		zoom: 0.5;
+        	}
+		</style>
+	</head>
+	<body>
+	<div class="page1">
+		<div class="head"><span>201</span>8</div>
+		<div class="text">
+			<div class="title">
+				<div class="tl_1">六十芳华 <span>·</span> 相约迷马</div>
+				<div class="tl_2">快乐 • 激情 • 梦想</div>
+			</div>
+			<div class="inf">
+				<div class="name">
+					<input  id="name"/>
+					<span>姓名：</span>
+					<div class="err" id="err1"></div>
+				</div>
+				<div class="id">
+					<input id="id" type="number"/>
+					<span>编号：</span>
+					<div class="err" id="err2"></div>
+				</div>
+				<button id="login" class="button"/>拍照</button>
+			</div>
+		</div>
+		<div class="footer"><img src="Logo.png"></div>
+	</div>
+	<div class="page1_5">
+		<div class="main">
+			<div class="hint">拍摄你的荣誉照片</div>
+			<div id="photo">
+				
+			</div>
+			<div class="btm">
+			<input type="file" name="file" id="file" class="inputfile" accept="image/png, image/jpeg, image/gif, image/jpg"  capture="camera"/>
+			<label for="file" class='button2'>重拍</label>
+			<div class="submit">
+				生成奖状
+			</div>
+		</div>
+		</div>
+	</div>
+	<div id="page2">
+		<div id="screen">
+			<img id="im" />
+			<canvas id="can"></canvas>
+		</div>
+		
+		
+	</div>
+	<script>
+		window.onload = function() {
+			var img1 = new Image();
+			var img2 = new Image();
+			var img3 = new Image();
+			var can = document.getElementById('can');
+			var im = document.getElementById('im');
+			var id = document.getElementById('id');
+			var name = document.getElementById('name');
+			var photo = document.getElementById('photo');
+			var width = document.documentElement.clientWidth || document.body.clientWidth;
+			var height = document.documentElement.clientHeight || document.body.clientHeight;
+			var screen1 = document.getElementById('screen');
+			var err1 = document.getElementById('err1');
+			var err2 = document.getElementById('err2');
+			var flag=0;
+		 	let lzk=0;
+			photo.style.height=height*0.28+"px";
+			photo.style.width=height*0.21+"px";
+			can.width =  height*0.85*2*(720/1206);
+			can.height = height*0.85*2;
+			im.width =  height*0.85*2*(720/1206);
+			im.height = height*0.85*2;
+			screen1.style.width =  height*0.85*2*(720/1206)+"px";
+			screen1.style.height =  height*0.85*2+"px";
+			im.style.marginTop=height*0.15+'px';
+			var x =Math.random();//0.1
+			name.onblur = function () {
+        			if(name.value==""||name.value.length<2||name.value.length>5){
+						err1.innerHTML="名字是2-4个汉字诺~";
+						name.style.border="2px solid red";
+					}else{
+						err1.innerHTML="";
+						name.style.border="0px";
+					} 
+            	}
+			id.onblur = function () {
+        			if(id.value.length!=5||parseInt(id.value)<0||parseInt(id.value)>=100000){
+        				err2.innerHTML="编号是5位数字诺~"
+        				id.style.border="2px solid red";
+        			}else{
+        				err2.innerHTML="";
+        				id.style.border="0px";
+        			} 
+            	}
+		if(x<=0.333334){
+			var ctx = can.getContext("2d");
+			$('#login').click(function(){
+				if(name.value==""||name.value.length<2||name.value.length>5||id.value.length!=5||parseInt(id.value)<0||parseInt(id.value)>=100000){
+					alert("请输入正确的名字与编号诺~");
+					return;
+				}
+				lzk++;
+				return  $("#file").click();
+			});
+			$('.submit').click(function(){
+				if(flag==0){
+					alert("请上传图片！");
+					return;
+				}
+				$('.page1_5').fadeOut(500);
+				$('#page2').delay(500).fadeIn(500);
+				ctx.beginPath();
+				ctx.font = "800 6.5vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
+				ctx.textAlign="center";
+				ctx.fillStyle = "#0A3444";
+				var a=parseInt(id.value)%10;
+				var b=parseInt(parseInt(id.value)/10)%10;
+				var c=parseInt(parseInt(id.value)/100)%10;
+				var d=parseInt(parseInt(id.value)/1000)%10;
+				var e=parseInt(parseInt(id.value)/10000)%10;
+				ctx.fillText(e, height*0.85*2*0.124, height*0.85*2*0.106);
+				ctx.fillText(d, height*0.85*2*0.152, height*0.85*2*0.106);
+				ctx.fillText(c, height*0.85*2*0.180, height*0.85*2*0.106);
+				ctx.fillText(b, height*0.85*2*0.208, height*0.85*2*0.106);
+				ctx.fillText(a, height*0.85*2*0.236, height*0.85*2*0.106);
+				ctx.font = "400 15vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
+				ctx.textAlign="center";
+				ctx.fillStyle = "#F67706";
+				ctx.fillText(name.value, height*0.85*2*0.222, height*0.85*2*0.172);
+				ctx.closePath();
+				img1 = can.toDataURL('image/jpeg');
+				im.src=img1;
+			});
+//			$('#file').change(function(){
+//    			var file1 = $('#file').get(0).files[0];
+//    			lrz(file1, {
+//  			width: 1024
+//  		})
+//      		.then(function (rst) {
+//          	// 把处理的好的图片给用户看看呗
+//          	flag=1;
+//          	console.log("77777777777");
+//          	img3.src = rst.base64;
+//          	photo.style.backgroundImage="url("+rst.base64+")";
+//          	photo.style.backgroundSize="100% 100%";
+//          	draw();
+//          	return rst;
+//      		});
+//    		});
+			document.querySelector('#file').addEventListener('change', function () {
+    	 	// this.files[0] 是用户选择的文件
+    		lrz(this.files[0], {
+    			width: 1024
+    		})
+        		.then(function (rst) {
+            	// 把处理的好的图片给用户看看呗
+            	flag=1;
+            	img3.src = rst.base64;
+            	photo.style.backgroundImage="url("+rst.base64+")";
+            	photo.style.backgroundSize="100% 100%";
+            	if(lzk==1){
+            		$('.page1').fadeOut(500);
+					$('.page1_5').delay(500).fadeIn(500);
+            	}lzk++;
+            	draw();
+            	return rst;
+        		});
+			});
+			function draw(){
+        		img3.onload = function(){
+        			img2.src="橙蓝.png";
+        			img2.onload = function(){  
+        				ctx.beginPath();
+						ctx.drawImage(img2,0,0, height*0.85*2*(720/1206), height*0.85*2);
+						ctx.closePath();
+						ctx.beginPath();
+        				ctx.drawImage(img3,height*0.85*2*(720/1206)*217/613,height*0.85*2*415/1230 , height*0.85*2*(720/1206)/0.8*0.234, height*0.85*2*190/820 );
+        				ctx.closePath();
+        			}
+        		}
+			}
+			
+		}else if(x<=0.666667){
+			var ctx = can.getContext("2d");
+			$('#login').click(function(){
+				if(name.value==""||name.value.length<2||name.value.length>5||id.value.length!=5||parseInt(id.value)<0||parseInt(id.value)>=100000){
+					alert("请输入正确的名字与编号");
+					return;
+				}
+				lzk++;
+				return  $("#file").click();
+			});
+			$('.submit').click(function(){
+				if(flag==0){
+					alert("请上传图片！");
+					return;
+				}
+				$('.page1_5').fadeOut(500);
+				$('#page2').delay(500).fadeIn(500);
+				ctx.beginPath();
+				ctx.font = "800 6.5vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
+				ctx.textAlign="center";
+				ctx.fillStyle = "#298264";
+				var a=parseInt(id.value)%10;
+				var b=parseInt(parseInt(id.value)/10)%10;
+				var c=parseInt(parseInt(id.value)/100)%10;
+				var d=parseInt(parseInt(id.value)/1000)%10;
+				var e=parseInt(parseInt(id.value)/10000)%10;
+				ctx.fillText(e, height*0.85*2*0.124, height*0.85*2*0.106);
+				ctx.fillText(d, height*0.85*2*0.152, height*0.85*2*0.106);
+				ctx.fillText(c, height*0.85*2*0.180, height*0.85*2*0.106);
+				ctx.fillText(b, height*0.85*2*0.208, height*0.85*2*0.106);
+				ctx.fillText(a, height*0.85*2*0.236, height*0.85*2*0.106);
+				ctx.font = "400 15vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
+				ctx.textAlign="center";
+				ctx.fillStyle = "#D23C2E";
+				ctx.fillText(name.value, height*0.85*2*0.222, height*0.85*2*0.172);
+				ctx.closePath();
+				img1 = can.toDataURL('image/jpeg');
+				im.src=img1;
+			});
+			document.querySelector('#file').addEventListener('change', function () {
+    		// this.files[0] 是用户选择的文件
+    		lrz(this.files[0], {
+    			width: 1024
+    		})
+        		.then(function (rst) {
+            	// 把处理的好的图片给用户看看呗
+            	flag=1;
+            	if(lzk==1){
+            		$('.page1').fadeOut(500);
+					$('.page1_5').delay(500).fadeIn(500);
+            	}lzk++;
+            	img3.src = rst.base64;
+            	photo.style.backgroundImage="url("+rst.base64+")";
+            	photo.style.backgroundSize="100% 100%";
+            	draw();
+            	return rst;
+        		});
+			});
+			function draw(){
+        		img3.onload = function(){  
+        			img2.src="红绿.png";
+        			img2.onload = function(){  
+        				ctx.beginPath();
+						ctx.drawImage(img2,0,0, height*0.85*2*(720/1206), height*0.85*2);
+						ctx.closePath();
+						ctx.beginPath();
+        				ctx.drawImage(img3,height*0.85*2*(720/1206)*217/613,height*0.85*2*415/1230 , height*0.85*2*(720/1206)/0.8*0.234, height*0.85*2*190/820 );
+        				ctx.closePath();
+        			}
+        		}
+			}
+		}else{
+			var ctx = can.getContext("2d");
+			$('#login').click(function(){
+				if(name.value==""||name.value.length<2||name.value.length>5||id.value.length!=5||parseInt(id.value)<0||parseInt(id.value)>=100000){
+					alert("请输入正确的名字与编号");
+					return;
+				}
+				lzk++;
+				return  $("#file").click();
+			});
+			$('.submit').click(function(){
+				if(flag==0){
+					alert("请上传图片！");
+					return;
+				}
+				$('.page1_5').fadeOut(500);
+				$('#page2').delay(500).fadeIn(500);
+				ctx.beginPath();
+				ctx.font = "800 6.5vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
+				ctx.textAlign="center";
+				ctx.fillStyle = "#2496B1";
+				var a=parseInt(id.value)%10;
+				var b=parseInt(parseInt(id.value)/10)%10;
+				var c=parseInt(parseInt(id.value)/100)%10;
+				var d=parseInt(parseInt(id.value)/1000)%10;
+				var e=parseInt(parseInt(id.value)/10000)%10;
+				ctx.fillText(e, height*0.85*2*0.124, height*0.85*2*0.106);
+				ctx.fillText(d, height*0.85*2*0.152, height*0.85*2*0.106);
+				ctx.fillText(c, height*0.85*2*0.180, height*0.85*2*0.106);
+				ctx.fillText(b, height*0.85*2*0.208, height*0.85*2*0.106);
+				ctx.fillText(a, height*0.85*2*0.236, height*0.85*2*0.106);
+				ctx.font = "400 14.5vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
+				ctx.textAlign="center";
+				ctx.fillStyle = "#DD2422";
+				ctx.fillText(name.value, height*0.85*2*0.210, height*0.85*2*0.172);
+				ctx.closePath();
+				img1 = can.toDataURL('image/jpeg');
+				im.src=img1;
+			});
+			document.querySelector('#file').addEventListener('change', function () {
+    		// this.files[0] 是用户选择的文件
+    		lrz(this.files[0], {
+    			width: 1024
+    		})
+        		.then(function (rst) {
+            	// 把处理的好的图片给用户看看呗
+            	flag=1;
+            	if(lzk==1){
+            		$('.page1').fadeOut(500);
+					$('.page1_5').delay(500).fadeIn(500);
+            	}lzk++;
+            	img3.src = rst.base64;
+            	photo.style.backgroundImage="url("+rst.base64+")";
+            	photo.style.backgroundSize="100% 100%";
+            	draw();
+            	return rst;
+        		});
+			});
+			function draw(){
+        		img3.onload = function(){   
+        			img2.src="蓝红.png";
+        			img2.onload = function(){  
+        				ctx.beginPath();
+						ctx.drawImage(img2,0,0, height*0.85*2*(720/1206), height*0.85*2);
+						ctx.closePath();
+						ctx.beginPath();
+        				ctx.drawImage(img3,height*0.85*2*(720/1206)*217/613,height*0.85*2*415/1230 , height*0.85*2*(720/1206)/0.8*0.234, height*0.85*2*190/820 );
+        				ctx.closePath();
+        			}
+        		}
+			}
+		}
+			
+		}
+	</script>
+	</body>
+</html>
