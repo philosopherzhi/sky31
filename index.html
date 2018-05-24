@@ -430,7 +430,7 @@
 				ctx.closePath();
 				img1 = can.toDataURL('image/jpeg');
 				im.src=img1;
-				download.href=window.URL.createObjectURL(dataURItoBlob(im.src));
+				download.href=URL.createObjectURL(dataURItoBlob(im.src));
 			});
 //			$('#file').change(function(){
 //    			var file1 = $('#file').get(0).files[0];
